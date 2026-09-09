@@ -1,9 +1,12 @@
 #Jesus is king
 ---
 name: AdvancedTimerTool
-main: advancedtimertool\AdvancedTimerToolLoader
+main: 'advancedtimertool\AdvancedTimerToolLoader'
 version: 1.0.0
+discord: rajadortv
+author: [Rajador, Souzaghost]
 description: 'Armazena dados temporariamente'
+depend: [SmartCommand]
 api: 2.0.0
 resources: []
 ...
