@@ -1,0 +1,9 @@
+#Jesus is king
+---
+name: AdvancedTimerTool
+main: advancedtimertool\AdvancedTimerToolLoader
+version: 1.0.0
+description: 'Armazena dados temporariamente'
+api: 2.0.0
+resources: []
+...
