@@ -29,11 +29,9 @@ namespace advancedtimertool\timer;
 use advancedtimertool\AdvancedTimerToolLoader;
 use advancedtimertool\task\TimerSchedulerTask;
 use InvalidArgumentException;
-use pocketmine\plugin\Plugin;
 use pocketmine\plugin\PluginBase;
 use pocketmine\scheduler\Task;
 use pocketmine\Server;
-use SmartCommand\utils\SingletonTrait;
 use Throwable;
 
 class TimerScheduler
@@ -153,6 +151,32 @@ class TimerScheduler
     protected function resetUpdater()
     {
         $this->currentTick = 0;
+    }
+
+    public function disable()
+    {
+        foreach ($this->scheduledUpdates as $scheduledUpdateTick => $scheduledUpdateList) {
+            $remaningTicks = $scheduledUpdateTick - $this->currentTick;
+            foreach ($scheduledUpdateList as $timer) {
+                try {
+                    $timer->onSchedulerDisabled($remaningTicks);
+                } catch (Throwable $error) {
+                    $this->plugin->getLogger()->error((string) $error);
+                }
+            }
+        }
+    }
+
+    /**
+     * @return Timer[]
+     */
+    public function getAllTimers() : array
+    {
+        $timers = [];
+        foreach ($this->timerMap as $timerId => $timerTicks) {
+            $timers[] = $this->scheduledUpdates[$timerTicks][$timerId];
+        }
+        return $timers;
     }
 
     

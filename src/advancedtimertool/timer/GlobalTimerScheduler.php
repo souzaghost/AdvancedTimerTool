@@ -24,31 +24,20 @@ declare (strict_types=1);
  * 
 **/
 
-namespace advancedtimertool\task;
+namespace advancedtimertool\timer;
 
-use advancedtimertool\timer\TimerScheduler;
-use pocketmine\plugin\Plugin;
-use pocketmine\scheduler\PluginTask;
+use advancedtimertool\AdvancedTimerToolLoader;
+use pocketmine\plugin\PluginBase;
+use SmartCommand\utils\SingletonTrait;
 
-class TimerSchedulerTask extends PluginTask
+final class GlobalTimerScheduler extends TimerScheduler
 {
 
-    /** @var TimerScheduler */
-    protected $scheduler;
+    use SingletonTrait;
 
-    public function __construct(Plugin $owner, TimerScheduler $scheduler)
+    public function __construct()
     {
-        parent::__construct($owner);
-        $this->scheduler = $scheduler;
-    }
-
-    public function onRun($currentTick)
-    {
-        $this->scheduler->onUpdate();
-    }
-
-    public function onCancel()
-    {
-        $this->scheduler->disable();
+        self::setInstance($this);
+        return parent::__construct(AdvancedTimerToolLoader::getInstance());
     }
 }

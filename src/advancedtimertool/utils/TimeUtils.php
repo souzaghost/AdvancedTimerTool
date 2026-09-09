@@ -26,6 +26,7 @@ declare(strict_types=1);
 
 namespace advancedtimertool\utils;
 
+use pocketmine\Server;
 use pocketmine\utils\TextFormat;
 
 final class TimeUtils 
@@ -201,5 +202,20 @@ final class TimeUtils
             $times[] = 'e ' . $theLast;
         }
         return implode(' ', $times);
+    }
+
+    /**
+     * @param float $timestamp
+     * @return integer
+     */
+    public static function timestampToTicks(float $timestamp) : int 
+    {
+        $serverTickTime = floor($timestamp / 0.05);
+
+        if (($timestamp % 0.05) !== 0) {
+            $serverTickTime += 1;
+        }
+
+        return $serverTickTime;
     }
 }

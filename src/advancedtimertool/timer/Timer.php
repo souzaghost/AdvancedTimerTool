@@ -42,4 +42,12 @@ interface Timer
     public function onUpdate() : int;
 
 
+    /**
+     * Called when the Scheduler's task is disabled
+     * @param integer $ticksRemaning
+     * @return void
+     */
+    public function onSchedulerDisabled(int $ticksRemaning);
+
+
 }

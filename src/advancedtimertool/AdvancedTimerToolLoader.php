@@ -30,6 +30,7 @@ use pocketmine\event\Listener;
 use pocketmine\plugin\PluginBase;
 use pocketmine\Server;
 use SmartCommand\utils\SingletonTrait;
+use pocketmine\scheduler\ServerScheduler;
 
 class AdvancedTimerToolLoader extends PluginBase
 {

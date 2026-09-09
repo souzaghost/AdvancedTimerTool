@@ -24,31 +24,27 @@ declare (strict_types=1);
  * 
 **/
 
-namespace advancedtimertool\task;
+namespace advancedtimertool\timer\expirable;
 
+use advancedtimertool\timer\BaseTimerTrait;
+use advancedtimertool\timer\Timer;
 use advancedtimertool\timer\TimerScheduler;
-use pocketmine\plugin\Plugin;
-use pocketmine\scheduler\PluginTask;
 
-class TimerSchedulerTask extends PluginTask
+trait ExpirableTimerTrait 
 {
 
-    /** @var TimerScheduler */
-    protected $scheduler;
+    use BaseTimerTrait;
 
-    public function __construct(Plugin $owner, TimerScheduler $scheduler)
+    public function onUpdate() : int
     {
-        parent::__construct($owner);
-        $this->scheduler = $scheduler;
+        $this->onExpire();
+        return 0;
     }
 
-    public function onRun($currentTick)
-    {
-        $this->scheduler->onUpdate();
-    }
-
-    public function onCancel()
-    {
-        $this->scheduler->disable();
-    }
+    /**
+     * Called when the timer is expired
+     *
+     * @return void
+     */
+    abstract protected function onExpire();
 }
