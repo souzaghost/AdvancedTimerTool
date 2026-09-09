@@ -50,6 +50,10 @@ class AdvancedTimerToolLoader extends PluginBase
         }
     }
 
+    public function onDisable()
+    {
+    }
+
     /**
      * @param string $identifier
      * @param mixed $defaultValue

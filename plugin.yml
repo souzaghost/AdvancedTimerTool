@@ -1,10 +1,12 @@
+#Jesus is king
 ---
 name: AdvancedTimerTool
-description: Sistema de temporizador avançado com cache e otimização para desenvolvedores
-author: [Rajador, Souzaghost]
-discord: rajadortv
-api: 2.0.0
-depend: [SmartCommand]
-version: 1.0.0
 main: 'advancedtimertool\AdvancedTimerToolLoader'
+version: 1.0.0
+discord: rajadortv
+author: [Rajador, Souzaghost]
+description: 'Armazena dados temporariamente'
+depend: [SmartCommand]
+api: 2.0.0
+resources: []
 ...
