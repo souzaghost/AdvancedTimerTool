@@ -1,7 +1,7 @@
 ---
 name: AdvancedTimerTool
 description: Sistema de temporizador avançado com cache e otimização para desenvolvedores
-author: Rajador, Souzaghost
+author: [Rajador, Souzaghost]
 discord: rajadortv
 api: 2.0.0
 depend: [SmartCommand]
