@@ -1,0 +1,2 @@
+# AdvancedTimerTool
+Armazena dados temporariamente
