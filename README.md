@@ -1,2 +1,2 @@
 # AdvancedTimerTool
-Armazena dados temporariamente
+Sistema de avançado de tempo
