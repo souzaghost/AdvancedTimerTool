@@ -5,7 +5,7 @@ main: 'advancedtimertool\AdvancedTimerToolLoader'
 version: 1.0.0
 discord: rajadortv
 author: [Rajador, Souzaghost]
-description: 'Armazena dados temporariamente'
+description: 'Sistema de avançado de tempo'
 depend: [SmartCommand]
 api: 2.0.0
 resources: []
